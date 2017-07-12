@@ -13,6 +13,10 @@ public class RomanNumeralsGenerator {
         return roman;
     }
 
+    public static int decimalFor(String roman) {
+        return 1;
+    }
+
     enum RomanToDecimal {
         THOUSAND("M", 1000),
         NINE_HUNDRED("CM", 900),

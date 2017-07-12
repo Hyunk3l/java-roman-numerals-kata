@@ -2,7 +2,8 @@ package com.hyunkel.romannumerals;
 
 import org.junit.Test;
 
-import static com.hyunkel.romannumerals.RomanNumeralsGenerator.*;
+import static com.hyunkel.romannumerals.RomanNumeralsGenerator.decimalFor;
+import static com.hyunkel.romannumerals.RomanNumeralsGenerator.romanFor;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RomanNumeralsGeneratorShould {
@@ -21,5 +22,10 @@ public class RomanNumeralsGeneratorShould {
         assertThat(romanFor(30)).isEqualTo("XXX");
         assertThat(romanFor(2687)).isEqualTo("MMDCLXXXVII");
         assertThat(romanFor(3499)).isEqualTo("MMMCDXCIX");
+    }
+
+    @Test
+    public void generate_a_decimal_numer_for_a_given_roman_number() {
+        assertThat(decimalFor("I")).isEqualTo(1);
     }
 }
