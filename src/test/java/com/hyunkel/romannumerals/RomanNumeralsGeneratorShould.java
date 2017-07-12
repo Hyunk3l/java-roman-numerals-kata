@@ -25,7 +25,7 @@ public class RomanNumeralsGeneratorShould {
     }
 
     @Test
-    public void generate_a_decimal_numer_for_a_given_roman_number() {
+    public void generate_a_decimal_number_for_a_given_roman_number() {
         assertThat(decimalFor("I")).isEqualTo(1);
     }
 }
