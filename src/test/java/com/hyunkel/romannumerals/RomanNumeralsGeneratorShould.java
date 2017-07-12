@@ -9,6 +9,6 @@ public class RomanNumeralsGeneratorShould {
 
     @Test
     public void generate_a_roman_number_for_a_given_decimal_number() {
-        assertThat(romanFor(1)).isSameAs("I");
+        assertThat(romanFor(1)).isEqualTo("I");
     }
 }
