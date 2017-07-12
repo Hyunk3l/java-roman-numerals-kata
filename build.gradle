@@ -1,4 +1,4 @@
-group 'com.hyunkel.romanumerals'
+group 'com.hyunkel.romannumerals'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
