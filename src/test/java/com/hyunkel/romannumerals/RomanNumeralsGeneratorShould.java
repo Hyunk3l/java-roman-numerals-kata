@@ -2,6 +2,9 @@ package com.hyunkel.romannumerals;
 
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static com.hyunkel.romannumerals.RomanNumeralsGenerator.decimalFor;
 import static com.hyunkel.romannumerals.RomanNumeralsGenerator.romanFor;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -10,33 +13,32 @@ public class RomanNumeralsGeneratorShould {
 
     @Test
     public void generate_a_roman_number_for_a_given_decimal_number() {
-        assertThat(romanFor(1)).isEqualTo("I");
-        assertThat(romanFor(2)).isEqualTo("II");
-        assertThat(romanFor(3)).isEqualTo("III");
-        assertThat(romanFor(4)).isEqualTo("IV");
-        assertThat(romanFor(5)).isEqualTo("V");
-        assertThat(romanFor(7)).isEqualTo("VII");
-        assertThat(romanFor(9)).isEqualTo("IX");
-        assertThat(romanFor(10)).isEqualTo("X");
-        assertThat(romanFor(18)).isEqualTo("XVIII");
-        assertThat(romanFor(30)).isEqualTo("XXX");
-        assertThat(romanFor(2687)).isEqualTo("MMDCLXXXVII");
-        assertThat(romanFor(3499)).isEqualTo("MMMCDXCIX");
+        for(Map.Entry<String, Integer> romalNumeral : romanNumeralsProvider().entrySet()) {
+            assertThat(romanFor(romalNumeral.getValue())).isEqualTo(romalNumeral.getKey());
+        }
     }
 
     @Test
     public void generate_a_decimal_number_for_a_given_roman_number() {
-        assertThat(decimalFor("I")).isEqualTo(1);
-        assertThat(decimalFor("II")).isEqualTo(2);
-        assertThat(decimalFor("III")).isEqualTo(3);
-        assertThat(decimalFor("IV")).isEqualTo(4);
-        assertThat(decimalFor("V")).isEqualTo(5);
-        assertThat(decimalFor("VII")).isEqualTo(7);
-        assertThat(decimalFor("IX")).isEqualTo(9);
-        assertThat(decimalFor("X")).isEqualTo(10);
-        assertThat(decimalFor("XVIII")).isEqualTo(18);
-        assertThat(decimalFor("XXX")).isEqualTo(30);
-        assertThat(decimalFor("MMDCLXXXVII")).isEqualTo(2687);
-        assertThat(decimalFor("MMMCDXCIX")).isEqualTo(3499);
+        for(Map.Entry<String, Integer> romalNumeral : romanNumeralsProvider().entrySet()) {
+            assertThat(decimalFor(romalNumeral.getKey())).isEqualTo(romalNumeral.getValue());
+        }
+    }
+
+    private Map<String, Integer> romanNumeralsProvider() {
+        HashMap<String, Integer> romanNumerals = new HashMap<>();
+        romanNumerals.put("I", 1);
+        romanNumerals.put("II", 2);
+        romanNumerals.put("III", 3);
+        romanNumerals.put("IV", 4);
+        romanNumerals.put("V", 5);
+        romanNumerals.put("VII", 7);
+        romanNumerals.put("IX", 9);
+        romanNumerals.put("X", 10);
+        romanNumerals.put("XVIII", 18);
+        romanNumerals.put("XXX", 30);
+        romanNumerals.put("MMDCLXXXVII", 2687);
+        romanNumerals.put("MMMCDXCIX", 3499);
+        return romanNumerals;
     }
 }
