@@ -22,4 +22,20 @@ public class RomanNumeralsGeneratorShould {
         assertThat(romanFor(2687)).isEqualTo("MMDCLXXXVII");
         assertThat(romanFor(3499)).isEqualTo("MMMCDXCIX");
     }
+
+    @Test
+    public void generate_a_decimal_for_a_given_roman_number() {
+        assertThat(decimalFor("I")).isEqualTo(1);
+        assertThat(decimalFor("II")).isEqualTo(2);
+        assertThat(decimalFor("III")).isEqualTo(3);
+        assertThat(decimalFor("IV")).isEqualTo(4);
+        assertThat(decimalFor("V")).isEqualTo(5);
+        assertThat(decimalFor("VII")).isEqualTo(7);
+        assertThat(decimalFor("IX")).isEqualTo(9);
+        assertThat(decimalFor("X")).isEqualTo(10);
+        assertThat(decimalFor("XVIII")).isEqualTo(18);
+        assertThat(decimalFor("XXX")).isEqualTo(30);
+        assertThat(decimalFor("MMDCLXXXVII")).isEqualTo(2687);
+        assertThat(decimalFor("MMMCDXCIX")).isEqualTo(3499);
+    }
 }

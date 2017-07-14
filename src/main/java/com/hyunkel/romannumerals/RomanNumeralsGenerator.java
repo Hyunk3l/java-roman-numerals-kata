@@ -13,6 +13,20 @@ public class RomanNumeralsGenerator {
         return roman;
     }
 
+    public static int decimalFor(String roman) {
+        int result = 0;
+
+        for (RomanToDecimal romanToDecimal : RomanToDecimal.values()) {
+            while (roman.indexOf(romanToDecimal.roman) == 0) {
+                result += romanToDecimal.decimal;
+                int length = romanToDecimal.roman.length();
+                roman = roman.substring(length);
+            }
+        }
+
+        return result;
+    }
+
     enum RomanToDecimal {
         THOUSAND("M", 1000),
         NINE_HUNDRED("CM", 900),
